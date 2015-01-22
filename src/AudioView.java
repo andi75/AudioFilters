@@ -13,6 +13,8 @@ import javax.swing.*;
 
 public class AudioView extends JPanel
 {
+    public boolean debug = false;
+    
     int offset;
     double maxValue;
     double zoom = 2;
@@ -49,6 +51,8 @@ public class AudioView extends JPanel
 
     private void rebuild()
     {
+        if(debug) System.out.println("[rebuild] started");
+
         int width = getWidth();
         int height = getHeight();
 
@@ -83,7 +87,7 @@ public class AudioView extends JPanel
             {
                 double maxValue = (this.maxValue != 0) ? this.maxValue : buffer.maxValue;
                 float value = (float)(buffer.read(i + offset));
-                System.out.println(value);
+                if(debug) System.out.println("[rebuild] " + value);
                 int y = (int) (height * value / (2 * maxValue));
                 // float value = (float)(buffer.read(i + offset));
                 // value = (value - buffer.minValue) / (buffer.maxValue - buffer.minValue);

@@ -28,7 +28,7 @@ public class SimpleSynth {
         ctrl.view.setPreferredSize(new Dimension(600, 200));
         ctrl.fftView.setPreferredSize(new Dimension(600, 200));
 
-        JFrame frame = new JFrame("SympleSynth - build 167");
+        JFrame frame = new JFrame("SympleSynth - build 168");
         frame.setLocation(50, 50);
         frame.setLayout(new BorderLayout());
 

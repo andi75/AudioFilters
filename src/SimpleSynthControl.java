@@ -20,10 +20,11 @@ public class SimpleSynthControl implements ActionListener, ChangeListener, LineL
 
 
     final int eSineWave = 0;
-    final int eTriangleWave = 1;
-    final int eSquareWave = 2;
-    final int eSawtoothWave = 3;
-    final String waveNames[] = { "SineWave", "TriangleWave", "SquareWave","SawtoothWave" };
+    final int eCosineWave = 1;
+    final int eTriangleWave = 2;
+    final int eSquareWave = 3;
+    final int eSawtoothWave = 4;
+    final String waveNames[] = { "SineWave", "CosineWave", "TriangleWave", "SquareWave","SawtoothWave" };
 
     Envelope envelope;
     boolean hasEnvelope = false;
@@ -53,6 +54,8 @@ public class SimpleSynthControl implements ActionListener, ChangeListener, LineL
         this.buffer = buffer;
 
         view = new AudioView(buffer);
+        // view.debug = true;
+        
         fftView = new AudioView(fftBuffer);
 
         fftCtrl = new FFTController(view, fftView);
@@ -186,6 +189,9 @@ public class SimpleSynthControl implements ActionListener, ChangeListener, LineL
                     case eSineWave:
                         value = WaveForms.sineWave(t * frequency);
                         break;
+                    case eCosineWave:
+                        value = WaveForms.cosineWave(t * frequency);
+                        break;
                     case eSquareWave:
                         value = WaveForms.squareWave(t * frequency);
                         break;
@@ -207,6 +213,9 @@ public class SimpleSynthControl implements ActionListener, ChangeListener, LineL
 
                         case eSineWave:
                             oPart = WaveForms.sineWave(t * frequency * (j + 1));
+                            break;
+                        case eCosineWave:
+                            oPart = WaveForms.cosineWave(t * frequency * (j + 1));
                             break;
                         case eSquareWave:
                             oPart = WaveForms.squareWave(t * frequency * (j + 1));

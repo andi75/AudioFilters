@@ -7,8 +7,7 @@ import javax.swing.JFrame;
 public class TestAudioView {
     public static void main(String argv[])
     {
-        // int data[] = { 0, -10000, -30000, 10000, 30000, -50000, 50000 };
-        int data[] = { 0, -10000, -30000, 10000, 30000 };
+        int data[] = { 0, -10000, -30000, 10000, 50000, -50000, 30000 };
 
         AudioBuffer buffer = new AudioBuffer(data.length, 16, 1);
         for(int i = 0; i < data.length; i++)

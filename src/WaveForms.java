@@ -14,6 +14,11 @@ public class WaveForms {
         return Math.sin(t * 2 * Math.PI);
     }
 
+    static double cosineWave(double t)
+    {
+        return Math.cos(t * 2 * Math.PI);
+    }
+        
     static double noise(double t)
     {
         return Math.random();
